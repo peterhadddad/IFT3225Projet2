@@ -5,7 +5,6 @@ var app = Sammy('#main', function() {
     });
 
     this.get('#/help', function() {
-        
         var context = this;
         $.get('pages/help.hbs', function(data) {
             var html = Handlebars.compile(data);
@@ -16,15 +15,18 @@ var app = Sammy('#main', function() {
     this.get('#/login', function() {
         var context = this;
         $.get('pages/login.hbs', function(data) {
-            var template = Handlebars.compile(data);
-            var html = template({title: "Login", description: "Please login to continue"});
+            var html = Handlebars.compile(data);
             context.$element().html(html);
         });
     });
 
     this.get('#/stats', function() {
-        console.log('Stats route triggered');
-        this.$element().html('<h1>Statistics</h1><p>Displaying statistics...</p>');
+        var context = this;
+        $.get('pages/stats.hbs', function(data) {
+            var html = Handlebars.compile(data);
+            context.$element().html(html);
+        });
+      
     });
 });
 

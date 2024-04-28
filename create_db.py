@@ -2,8 +2,8 @@ import mysql.connector
 
 
 host = "localhost"
-user = "root"  # Utilisateur par défaut de MySQL, ajustez selon votre configuration
-password = ""  # Mot de passe pour l'utilisateur MySQL, peut être vide localement
+user = "root"
+password = ""
 
 
 name = "conceptnet_db"
@@ -50,3 +50,8 @@ cursor.close()
 conn.close()
 
 print("Base de données et table initialisées, et faits insérés avec succès.")
+
+if __name__ == "__main__":
+        main()
+
+

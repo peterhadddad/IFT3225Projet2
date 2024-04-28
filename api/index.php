@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>ConceptNet SPA</title>
-    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sammy/lib/min/sammy-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
+
 </head>
 <body>
     <div id="menu">

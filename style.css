@@ -6,6 +6,31 @@
     
     
 }
+#menu{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 25px 25px;
+    border-radius: 20px;
+    box-shadow:  0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);
+    a{
+        color: black;
+        font-size: 20px;
+        font-weight: 500;
+        display: flex;
+        padding:5px;
+        padding-left:170px ;
+        text-align: center;
+        text-decoration: none;
+        transition: all .3s;
+    }
+    a:hover{
+        color: rgb(105, 0, 204);
+        border-radius: 10px;
+    
+    }
+
+}
 
 body{
     background-color:#e4e9f7; 
@@ -32,7 +57,7 @@ body{
     width: 450px;
     margin-top: 0px 10px;
 }
-.form-box header{
+.form-box h1{
     font-size:25px ;
     font-weight: 600;
     padding-bottom: 10px;
@@ -44,16 +69,22 @@ body{
     margin-bottom: 10px;
     flex-direction: column;
 }
+label{
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 500;
 
-.form-box form .input input{
+}
+.form-box input{
     height: 40px;
+    margin-bottom: 10px;
     width: 100%;
     padding: 0 10px;
     border-radius: 5px;
     border:1px solid #ccc;
     outline:none;
 }
-.btn{
+button{
     height: 35px;
     background-color: rgba(76,68,182,0.808);
     border:0;
@@ -65,7 +96,7 @@ body{
     margin-top: 10px;
     padding: 0px 10px;
 }
-.btn:hover{
+button:hover{
     opacity: 0.8;
 }
 .submit{

@@ -51,7 +51,5 @@ conn.close()
 
 print("Base de données et table initialisées, et faits insérés avec succès.")
 
-if __name__ == "__main__":
-        main()
 
 

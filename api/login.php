@@ -26,7 +26,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $stmt->bind_param("ss", $username, $pass);
     $stmt->execute();
     $result = $stmt->get_result();
-
     if($result->num_rows === 1){
         $row = $result->fetch_assoc();
         if($row['username'] === $username && $row['password'] === $pass){
@@ -34,6 +33,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             $_SESSION['id'] = $row['id'];
             $response['success'] = true;
             $response['redirect'] = 'home.php';
+            header('Location: home.php');
         } else {
             $response['error'] = 'Incorrect User name or password';
         }

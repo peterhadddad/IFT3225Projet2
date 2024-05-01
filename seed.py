@@ -3,7 +3,17 @@ import random
 
 CONCEPTNET_URL='http://api.conceptnet.io/query'
 LANGUAGES=['en','fr']
-RELATIONS=['r/RelatedTo','r/IsA','r/PartOf','r/HasA','r/MemberOf','r/AtLocation','r/Causes','r/UsedFor']
+RELATIONS = [
+    '/r/RelatedTo', '/r/IsA', '/r/PartOf', '/r/HasA', '/r/UsedFor', 
+    '/r/CapableOf', '/r/AtLocation', '/r/Causes', '/r/HasSubevent', 
+    '/r/HasProperty', '/r/HasPrerequisite', '/r/HasFirstSubevent', 
+    '/r/HasLastSubevent', '/r/MotivatedByGoal', '/r/ObstructedBy', 
+    '/r/Desires', '/r/CreatedBy', '/r/Synonym', '/r/Antonym', 
+    '/r/DistinctFrom', '/r/DerivedFrom', '/r/SymbolOf', '/r/DefinedAs', 
+    '/r/MannerOf', '/r/LocatedNear', '/r/HasContext', '/r/SimilarTo', 
+    '/r/EtymologicallyRelatedTo', '/r/EtymologicallyDerivedFrom', 
+    '/r/CausesDesire', '/r/MadeOf', '/r/ReceivesAction', '/r/ExternalURL'
+]
 
 FACTS=100
 MIN_CONCEPTS=40

@@ -1,0 +1,15 @@
+<h1>Facts for {{langue}}/{{concept}}</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Fact</th>
+    </tr>
+    {{#each facts}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{fact}}</td>
+    </tr>
+    {{/each}}
+</table>
+<a href="#/concept/{{langue}}/{{concept}}?page={{decrement page}}">Previous</a>
+<a href="#/concept/{{langue}}/{{concept}}?page={{increment page}}">Next</a>

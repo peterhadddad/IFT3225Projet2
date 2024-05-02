@@ -33,7 +33,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             $_SESSION['id'] = $row['id'];
             $response['success'] = true;
             $response['redirect'] = 'home.php';
-            header('Location: home.php');
+            header('Location: ../jeu.html');
         } else {
             $response['error'] = 'Incorrect User name or password';
         }

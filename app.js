@@ -1,9 +1,17 @@
+// Register Handlebars helpers
 Handlebars.registerHelper('increment', function(value) {
     return parseInt(value) + 1;
 });
 
 Handlebars.registerHelper('decrement', function(value) {
     return parseInt(value) - 1;
+});
+
+Handlebars.registerHelper('gt', function(value1, value2, options) {
+    return value1 > value2 ? options.fn(this) : (typeof options.inverse === 'function' ? options.inverse(this) : '');
+});
+Handlebars.registerHelper('lt', function(value1, value2, options) {
+    return value1 < value2 ? options.fn(this) : (typeof options.inverse === 'function' ? options.inverse(this) : '');
 });
 
 var app = Sammy('#main', function() {
@@ -45,15 +53,13 @@ var app = Sammy('#main', function() {
             }
         });
     });
-    
 
     this.get('#/concept', function() {
         var langue = this.params.langue;
         var concept = this.params.concept;
         var context = this;
-        var page = this.params.page || 1; // Default to first page if no page is specified
+        var page = this.params.page || 1;
     
-        // Call your API or ConceptNet to get facts
         $.ajax({
             url: `api/concepts.php?langue=${langue}&concept=${concept}&page=${page}`,
             dataType: 'json',
@@ -65,15 +71,15 @@ var app = Sammy('#main', function() {
             }
         });
     });
-    
-   this.get('#/jeu1',function(){
+
+    this.get('#/jeu1', function(){
          var context = this;
          $.get('pages/jeu1.hbs', function(data) {
               var html = Handlebars.compile(data);
               context.$element().html(html);
          });
-    
-   })
+    });
+
     $(function() {
         app.run('#/');
     });
@@ -97,7 +103,8 @@ var app = Sammy('#main', function() {
             }
         });
     });
-    this.get('#/dumpsfaits', function(context) {
+
+    this.get('#/dumpfaits', function(context) {
         $.ajax({
             url: 'api/dumpfaits.php',
             dataType: 'json',
@@ -113,8 +120,4 @@ var app = Sammy('#main', function() {
             }
         });
     });
-
-    
 });
-
-

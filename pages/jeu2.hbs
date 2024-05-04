@@ -1,0 +1,50 @@
+<div class="jeu2"  style="background-color: white;width:50vh;height:45.4vh;margin:auto;margin-top:5%;">
+<h1 style="display: flex;justify-content: center;align-items: center;padding:40px">Devinez !</h1>
+<div id="indces">
+    {{#each indices}}
+        <p>{{this}}</p>
+    {{/each}}
+</div>
+<form id="guessForm" style="display: flex;justify-content: center;align-items: center;padding:10px">
+    <input style="width:300px;height:50px" type="text" id="guess" name="guess" placeholder="Entrez votre proposition">
+    <button style="width:200px" type="submit">Devinez</button>
+</form>
+<div style="display: flex;justify-content: center;align-items: center;padding:5px">
+    <p id="timer">0</p>
+ </div>
+<script>
+$(document).ready(function() {
+    var timerleft = 60;
+    var timerId = setInterval(function() {
+        if (timerleft === 0) {
+            clearInterval(timerId);
+            $('#guessForm').submit(); 
+        } else {
+            $('#timer').text(timerleft + ' secondes restantes');
+            timerleft--;
+        }
+    }, 1000);
+    $.ajax({
+    url: 'http://localhost/Projet2IFT3225/api/validate_guesses.php',
+    type: 'POST',
+    data: { guesses: guesses },
+    success: function(data) {
+        console.log('Data received:', data);
+    },
+    error: function(xhr, status, error) {
+        console.error('Error:', status, error);
+    }
+});
+
+    $('#guessForm').on('submit', function(e) {
+        e.preventDefault();
+        var guesses = $('#guess').val();
+        $.post('validate_guesses.php', { guesses: guesses }, function(data) {
+            var results = JSON.parse(data);
+            alert('Correct guesses: ' + results.validGuesses.join(', '));
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            alert('Failed to get response: ' + textStatus);
+        });
+    });
+});
+</script>

@@ -1,0 +1,14 @@
+<h2>Facts List</h2>
+    <ul>
+        {{#each facts}}
+            <li>{{this.property}}: {{this.value}}</li>
+        {{/each}}
+    </ul>
+    <div class="pagination">
+        {{#if hasPrevious}}
+            <a href="#/relation/{{relation}}/from/{{langue}}/{{concept}}?page={{decrement page}}">Previous</a>
+        {{/if}}
+        {{#if hasNext}}
+            <a href="#/relation/{{relation}}/from/{{langue}}/{{concept}}?page={{increment page}}">Next</a>
+        {{/if}}
+    </div>

@@ -22,10 +22,10 @@
     </table>
     <div class="pagination">
     {{#if (gt currentPage 1)}}
-    <a href="#/dump-faits?page={{decrement currentPage}}" class="btn">Précédent</a>
+    <a href="#/dumpfaits?page={{decrement currentPage}}" class="btn">Précédent</a>
     {{/if}}
     {{#if (lt currentPage totalPages)}}
-    <a href="#/dump-faits?page={{increment currentPage}}" class="btn">Suivant</a>
+    <a href="#/dumpfaits?page={{increment currentPage}}" class="btn">Suivant</a>
     {{/if}}
 </div>
 </div>

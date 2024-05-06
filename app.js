@@ -1,19 +1,3 @@
-// Register Handlebars helpers
-Handlebars.registerHelper('increment', function(value) {
-    return parseInt(value) + 1;
-});
-
-Handlebars.registerHelper('decrement', function(value) {
-    return parseInt(value) - 1;
-});
-
-Handlebars.registerHelper('gt', function(value1, value2, options) {
-    return value1 > value2 ? options.fn(this) : (typeof options.inverse === 'function' ? options.inverse(this) : '');
-});
-
-Handlebars.registerHelper('lt', function(value1, value2, options) {
-    return value1 < value2 ? options.fn(this) : (typeof options.inverse === 'function' ? options.inverse(this) : '');
-});
 
 $(function() {
     var app = Sammy('#main', function() {

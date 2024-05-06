@@ -24,11 +24,9 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-# Création de la base de données si elle n'existe pas
 cursor.execute(f"CREATE DATABASE IF NOT EXISTS {name}")
 cursor.execute(f"USE {name}")
 
-# Création de la table si elle n'existe pas
 cursor.execute(f"""
 CREATE TABLE IF NOT EXISTS {table} (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,14 +36,12 @@ CREATE TABLE IF NOT EXISTS {table} (
 )
 """)
 
-# Insertion des faits dans la table
 insert_query = f"INSERT INTO {table} (start, relation, end) VALUES (%s, %s, %s)"
 cursor.executemany(insert_query, fact)
 
-# Validation des modifications
 conn.commit()
 
-# Fermeture des connexions
+
 cursor.close()
 conn.close()
 
